@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="stylesheet" href="reset.css" /> -->
+  <script src="main.js" type="module"></script>
+</head>
+
+<body>
+  <header>
+    <img class="img-header"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
+      alt="pokemon">
+  </header>
+  <!-- <button class="experto">EXPERTO</button>
+  <button class="principiante">PRINCIPIANTE</button>
+  <img class="entrada"
+  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
+  alt="pokemon"> -->
+
+  <nav class="contenedor-nav">
+    <div class="input-name"><input type="text" id="name"> <button id="btn-buscar">Buscar</button></div>
+    <div class="filtros">
+      <div class="options">
+        <select id="opciones" data-testid="select-filter" name="type">
+          <option value="normal">Normal</option>
+          <option value="fuego">Fuego</option>
+          <option value="agua">Agua</option>
+          <option value="Planta">Planta</option>
+          <option value="electricidad">Electricidad</option>
+          <option value="hielo">Hielo</option>
+        </select>
+      </div>
+
+      <div class="order" data-testid="select-sort">
+        <label> Ordenar por nombre</label>
+        <select id="opciones">
+          <option value="asc">A-Z</option>
+          <option value="z-a">Z-A</option>
+        </select>
+      </div>
+      <div class="button">
+        <button data-testid="button-clear">Limpiar filtros</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="area-card">
+    <ul class="lista">
+      <!-- <li>
+        <div class="card">
+          <img class="img-avatar"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            alt="Avatar">
+          <div class="container">
+            <h4><b>Pikachu</b></h4>
+            <p>Electric</p>
+          </div>
+        </div>
+      </li> -->
+
+      
+    </ul>
+  </section>
+</body>
+<footer>
+  <p class="p-footer">pokedex</p>
+</footer>
+
 </html>
