@@ -1,19 +1,19 @@
-import { request, createPokemon } from './dataFunctions.js';
-//import { renderItems } from './view.js';
+
+import { renderItems } from './view.js';
 
 // import data from './data/lol/lol.js';
-//import data from './data/pokemon/pokemon.js';
+import data from './data/pokemon/pokemon.js';
 // import data from './data/rickandmorty/rickandmorty.js';
-
+console.log(data.pokemon);
 
 const btnBuscar = document.querySelector("#btn-buscar");
-const url = 'https://pokeapi.co/api/v2/pokemon/';
+const root = document.querySelector('#root')
+
+root.appendChild(renderItems(data.pokemon[5]))
 
 btnBuscar.addEventListener("click", function () {
   const name = document.querySelector("#name").value;
   console.log(name);
-  let  holA = createPokemon(request(url, name));
-  console.log(holA);
 });
 
 
