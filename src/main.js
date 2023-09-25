@@ -1,19 +1,40 @@
 
 import { renderItems } from './view.js';
+import { search, filter} from './dataFunctions.js';
 
-// import data from './data/lol/lol.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
-console.log(data.pokemon);
+// import pokemon from './data/pokemon/pokemon.js';
+
+
 
 const btnBuscar = document.querySelector("#btn-buscar");
 const root = document.querySelector('#root')
 
-root.appendChild(renderItems(data.pokemon[5]))
+
+
+const select = document.querySelector('#opciones[data-testid="select-filter"][name="type"]');
+select.addEventListener("change", function(event) {
+  const type = select.value;
+  console.log(type);
+  const filterPokemon = filter(data, type);
+  root.innerHTML = "";
+  root.appendChild(renderItems(filterPokemon));
+});
+
+
+// root.appendChild(renderItems(data.pokemon[5]))
+
+
+//carga los elementos de tarjetas al inicio de la pagina
+data.pokemon.forEach((pokemon) => {
+  root.appendChild(renderItems(pokemon));
+});
 
 btnBuscar.addEventListener("click", function () {
   const name = document.querySelector("#name").value;
-  console.log(name);
+  const searchPokemon = search(data, name);
+  root.innerHTML = "";
+  root.appendChild(renderItems(searchPokemon));
 });
 
 

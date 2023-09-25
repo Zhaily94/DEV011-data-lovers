@@ -65,7 +65,7 @@ select#opciones {
 
 
 
-ul{
+/* ul{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -73,9 +73,20 @@ ul{
     flex-wrap: wrap;
     padding-left: 40px;
     padding-right: 40px;
-}
 
-.card {
+    
+} */
+
+ul{
+    float: right;
+      width: 200px;
+      height: auto;
+      margin-right: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+/* .card {
     display: flex;
     justify-content: center;
     width: 432px;
@@ -84,7 +95,7 @@ ul{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     
-  }
+  } */
   
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
