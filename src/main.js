@@ -1,29 +1,23 @@
 
 import { renderItems } from './view.js';
 import { search, filter} from './dataFunctions.js';
-
 import data from './data/pokemon/pokemon.js';
-// import pokemon from './data/pokemon/pokemon.js';
-
 
 
 const btnBuscar = document.querySelector("#btn-buscar");
 const root = document.querySelector('#root')
-
-
-
 const select = document.querySelector('#opciones[data-testid="select-filter"][name="type"]');
+
+
 select.addEventListener("change", function(event) {
   const type = select.value;
-  console.log(type);
   const filterPokemon = filter(data, type);
+  console.log(filterPokemon);
   root.innerHTML = "";
-  root.appendChild(renderItems(filterPokemon));
+  filterPokemon.forEach(itemPokemon => { //recorre los pokemones de tipo seleccionado y pinta los elementos que va encontrando
+    root.appendChild(renderItems(itemPokemon));
+  });
 });
-
-
-// root.appendChild(renderItems(data.pokemon[5]))
-
 
 //carga los elementos de tarjetas al inicio de la pagina
 data.pokemon.forEach((pokemon) => {
@@ -36,9 +30,6 @@ btnBuscar.addEventListener("click", function () {
   root.innerHTML = "";
   root.appendChild(renderItems(searchPokemon));
 });
-
-
-
 
 
 // const botonesExperto = document.querySelectorAll(".experto");

@@ -10,14 +10,6 @@ export const search = (data, name) => {
 }
 
 export const filter = (data, type) => {
-  for (const pokemon of data.pokemon) {
-    if (pokemon.type === type) {
-      // console.log(pokemon);
-      console.log(pokemon)
-      return pokemon;
-    }
-  }
-  console.log('no lo encontre')
-  return null;
-}
-
+  const filteredPokemon = data.pokemon.filter(pokemon => pokemon.type.includes(type)); //de todos los datos pokemon filtra por tipo que coincida con el tipo
+  return filteredPokemon; //retorna todos los pokemones filtrados
+};

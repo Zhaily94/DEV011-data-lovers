@@ -1,6 +1,6 @@
 export const renderItems = (pokemon) => {
-  const ul = document.createElement('ul');
-  ul.classList.add('lista');
+  // const ul = document.createElement('ul');
+  // ul.classList.add('lista');
 
   if (pokemon) {
     const li = document.createElement('li');
@@ -51,9 +51,7 @@ export const renderItems = (pokemon) => {
     // container.appendChild(type);
 
     li.appendChild(card);
-    ul.appendChild(li);
-
+    // ul.appendChild(li);
+    return li;
   }
-  return ul;
-
 }
