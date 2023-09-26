@@ -1,6 +1,6 @@
 
 import { renderItems } from './view.js';
-import { search, filter} from './dataFunctions.js';
+import { search, filterData} from './dataFunctions.js'; //importamos las funciones
 import data from './data/pokemon/pokemon.js';
 
 
@@ -10,14 +10,15 @@ const select = document.querySelector('#opciones[data-testid="select-filter"][na
 
 
 select.addEventListener("change", function(event) {
-  const type = select.value;
-  const filterPokemon = filter(data, type);
-  console.log(filterPokemon);
+  const valueSelect = select.value;
+  const filterPokemon = filterData(data.pokemon, 'type', valueSelect); //trae la funcion y se le mandan los datos pero se especifica los datos
   root.innerHTML = "";
   filterPokemon.forEach(itemPokemon => { //recorre los pokemones de tipo seleccionado y pinta los elementos que va encontrando
     root.appendChild(renderItems(itemPokemon));
   });
 });
+
+
 
 //carga los elementos de tarjetas al inicio de la pagina
 data.pokemon.forEach((pokemon) => {

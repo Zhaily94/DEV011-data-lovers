@@ -9,7 +9,12 @@ export const search = (data, name) => {
   }
 }
 
-export const filter = (data, type) => {
-  const filteredPokemon = data.pokemon.filter(pokemon => pokemon.type.includes(type)); //de todos los datos pokemon filtra por tipo que coincida con el tipo
-  return filteredPokemon; //retorna todos los pokemones filtrados
+// export const filter = (data, type) => {
+//   const filteredPokemon = data.pokemon.filter(pokemon => pokemon.type.includes(type)); //de todos los datos pokemon filtra por tipo que coincida con el tipo
+//   return filteredPokemon; //retorna todos los pokemones filtrados
+// };
+
+export const filterData = (data, filterBy, value) => {
+  const filteredData = data.filter(itemPokemon => itemPokemon[filterBy].includes(value));
+  return filteredData;
 };
