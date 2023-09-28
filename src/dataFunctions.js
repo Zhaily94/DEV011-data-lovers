@@ -1,4 +1,5 @@
 
+let filteredData;
 
 export const search = (data, name) => {
   for (const pokemon of data.pokemon) { //Por cada elemento en la colección data.pokemon, asigna ese elemento a la variable pokemon y ejecuta el bloque de código entre las llaves
@@ -9,12 +10,29 @@ export const search = (data, name) => {
   }
 }
 
-// export const filter = (data, type) => {
-//   const filteredPokemon = data.pokemon.filter(pokemon => pokemon.type.includes(type)); //de todos los datos pokemon filtra por tipo que coincida con el tipo
-//   return filteredPokemon; //retorna todos los pokemones filtrados
-// };
-
 export const filterData = (data, filterBy, value) => {
-  const filteredData = data.filter(itemPokemon => itemPokemon[filterBy].includes(value));
+  filteredData = data.filter(itemPokemon => itemPokemon[filterBy].includes(value));
   return filteredData;
 };
+
+export const sortData = (filteredData, sortBy, sortOrder) => {
+  if (sortOrder === 'asc') {
+    filteredData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+  } else if (sortOrder === 'desc') {
+    filteredData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+  }
+  console.log(filteredData);
+  return filteredData;
+};
+
+
+// export const sortAndFilterData = (data, filterBy, value, sortBy, sortOrder) => {
+//   const filteredData = filterData(data, filterBy, value);
+//   if (sortOrder === 'asc') {
+//     filteredData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+//   } else if (sortOrder === 'desc') {
+//     filteredData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+//   }
+//   console.log(filteredData);
+//   return filteredData;
+// };

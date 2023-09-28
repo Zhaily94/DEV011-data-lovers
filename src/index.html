@@ -27,19 +27,24 @@
       <div class="options">
         <select id="opciones" data-testid="select-filter" name="type">
           <option value="normal">Normal</option>
-          <option value="fire">fire</option>
-          <option value="agua">Agua</option>
-          <option value="Planta">Planta</option>
-          <option value="electricidad">Electricidad</option>
-          <option value="hielo">Hielo</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="fairy">Fairy</option>
+          <option value="electric">Electric</option>
+          <option value="fighting">Fighting</option>
+          <option value="grass">Grass</option>
+          <option value="ice">Ice</option>
+          <option value="flying">Flying</option>
+          <option value="psychic">Psychic</option>
         </select>
       </div>
 
-      <div class="order" data-testid="select-sort">
+      <div class="order">
         <label> Ordenar por nombre</label>
-        <select id="opciones">
+        <select id="opcions-order" class="order" data-testid="select-sort">
+          <option value=""> -- </option>
           <option value="asc">A-Z</option>
-          <option value="z-a">Z-A</option>
+          <option value="desc">Z-A</option>
         </select>
       </div>
       <div class="button">
@@ -48,9 +53,9 @@
     </div>
   </nav>
 
-  <section id="list" class="area-card">
+  <section id="root" class="area-card">
     <!-- //solo se agrego esta ul por que estava generando una ul por cada pokemon -->
-    <ul id="root" class=""> 
+    <ul id="list" class="">
     </ul>
   </section>
 </body>

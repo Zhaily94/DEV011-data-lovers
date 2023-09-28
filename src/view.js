@@ -23,6 +23,25 @@ export const renderItems = (pokemon) => {
     nom.textContent = pokemon.name;
     container.appendChild(nom);
 
+    const numero = document.createElement('dt');
+    numero.textContent = "#"+ pokemon.num;
+    container.appendChild(numero);
+    
+    // const gen = document.createElement('dt');
+    // gen.textContent = pokemon.generation.num;
+    // container.appendChild(gen);
+
+    const tip =document.createElement('dt')
+    tip.textContent ="Tipo: "+ pokemon.type;
+    tip.classList.add('class-tipo');
+    container.appendChild(tip);
+
+    // const region = document.createElement('dt');
+    // region.textContent = pokemon.generation.name;
+    // container.appendChild(region);
+
+
+
 
     // const name = document.createElement('dd');
     // name.setAttribute('itemprop', 'name');

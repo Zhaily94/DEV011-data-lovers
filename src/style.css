@@ -63,8 +63,6 @@ select#opciones {
     margin-right: 50px;
 }
 
-
-
 ul{
     display: flex;
     justify-content: space-between;
@@ -72,9 +70,7 @@ ul{
     list-style-type: none;
     flex-wrap: wrap;
     padding-left: 40px;
-    padding-right: 40px;
-
-    
+    padding-right: 40px;  
 }
 
 .card {
@@ -116,4 +112,3 @@ footer{
 .p-footer{
     margin-top: 76px;
 }
-
