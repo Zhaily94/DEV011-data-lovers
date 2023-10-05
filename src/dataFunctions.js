@@ -15,24 +15,14 @@ export const filterData = (data, filterBy, value) => {
   return filteredData;
 };
 
-export const sortData = (filteredData, sortBy, sortOrder) => {
+
+export function sortData(data, sortBy, sortOrder) {
+  let copia = [];
+  const fakeData = [...data];
   if (sortOrder === 'asc') {
-    filteredData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
+    copia = fakeData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
   } else if (sortOrder === 'desc') {
-    filteredData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+    copia = fakeData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
   }
-  console.log(filteredData);
-  return filteredData;
-};
-
-
-// export const sortAndFilterData = (data, filterBy, value, sortBy, sortOrder) => {
-//   const filteredData = filterData(data, filterBy, value);
-//   if (sortOrder === 'asc') {
-//     filteredData.sort((a, b) => a[sortBy].localeCompare(b[sortBy]));
-//   } else if (sortOrder === 'desc') {
-//     filteredData.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
-//   }
-//   console.log(filteredData);
-//   return filteredData;
-// };
+  return copia;
+}

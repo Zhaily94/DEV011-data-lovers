@@ -12,18 +12,21 @@
 
 <body>
   <header>
-    <h1 class="h1-header">
+    <h1>
+      <div class="h1-header">
       <img class="img-header"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
         alt="pokemon">
+      </div>
     </h1>
 
     <nav class="contenedor-nav">
       <div class="input-name"><input type="text" id="name"> <button id="btn-buscar"><i class="fas fa-search"></i></button></div>
       <div class="filtros">
         <div class="options">
-          <label> Filtrar por tipo</label>
-          <select id="opciones" data-testid="select-filter" name="type">
+          <label for="opciones"> Filtrar por tipo</label>
+          <select id="opciones" data-testid="select-filter" name="select-type">
+            <option value="">---</option>
             <option value="normal">Normal</option>
             <option value="fire">Fire</option>
             <option value="water">Water</option>
@@ -39,7 +42,7 @@
 
         <div class="order">
           <label> Ordenar por nombre</label>
-          <select id="opcions-order" class="order" data-testid="select-sort">
+          <select id="opcions-order" data-testid="select-sort" name="select-order">
             <option value=""> -- </option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
@@ -63,6 +66,7 @@
     <h2></h2>
     <section id="root" class="area-card">
       <ul id="list">
+       
       </ul>
     </section>
   </main>

@@ -7,12 +7,12 @@ import data from './data/pokemon/pokemon.js';
 const btnBuscar = document.querySelector("#btn-buscar");
 const limpiar = document.querySelector('[data-testid="button-clear"]');
 const list = document.querySelector('#list');
-const select = document.querySelector('#opciones[data-testid="select-filter"][name="type"]');
+const select = document.querySelector('#opciones[data-testid="select-filter"][name="select-type"]');
 const orderasd = document.querySelector('#opcions-order[data-testid="select-sort"]');
 let filterPokemon;
 
 
-select.addEventListener("change", function(event) {
+select.addEventListener("change", function() {
   const valueSelect = select.value;
   filterPokemon = filterData(data.pokemon, 'type', valueSelect); //trae la funcion y se le mandan los datos pero se especifica los datos
   list.innerHTML = "";
@@ -21,17 +21,28 @@ select.addEventListener("change", function(event) {
   });
 });
 
-orderasd.addEventListener("change", function(event) {
-  const sortOrder =  orderasd.value;
-  // Ordena los datos.
-  const sortedData = sortData(filterPokemon, 'name', sortOrder);
-  // Carga los elementos de tarjetas ordenados.
-  list.innerHTML = "";
-  sortedData.forEach((a,b) => {
-    list.appendChild(renderItems(a,b));
-  });
-});
+orderasd.addEventListener("change", () => {
+  const selectOrder = orderasd.value;
+  const selectFiltrar = select.value;
+  const orderData = sortData(data.pokemon, 'name', selectOrder);
+  const nuevofiltrar = filterData(data.pokemon, 'type', selectFiltrar);
 
+  let arreglo = [];
+  if (selectFiltrar) { // aqui validamos si el select tiene algo
+    filterData(orderData, "type", selectFiltrar) //
+    arreglo = sortData(nuevofiltrar, "name", selectOrder) // le asignamos el resultado de la funcion de sortData
+    list.innerHTML = "";
+    arreglo.forEach((a, b) => {
+      list.appendChild(renderItems(a, b));
+    });
+  }
+  else {
+    list.innerHTML = "";
+    orderData.forEach((a, b) => {
+      list.appendChild(renderItems(a, b));
+    });
+  }
+});
 
 //carga los elementos de tarjetas al inicio de la pagina
 data.pokemon.forEach((pokemon) => {
@@ -47,6 +58,7 @@ btnBuscar.addEventListener("click", function () {
 
 limpiar.addEventListener("click", function() {
   select.value = "";
+  orderasd.value ="";
   list.innerHTML = "";
   data.pokemon.forEach((pokemon) => {
     list.appendChild(renderItems(pokemon));
