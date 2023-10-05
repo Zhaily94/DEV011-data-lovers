@@ -5,15 +5,52 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <!-- <link rel="stylesheet" href="reset.css" /> -->
   <script src="main.js" type="module"></script>
 </head>
 
 <body>
   <header>
-    <img class="img-header"
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
-      alt="pokemon">
+    <h1 class="h1-header">
+      <img class="img-header"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
+        alt="pokemon">
+    </h1>
+
+    <nav class="contenedor-nav">
+      <div class="input-name"><input type="text" id="name"> <button id="btn-buscar"><i class="fas fa-search"></i></button></div>
+      <div class="filtros">
+        <div class="options">
+          <label> Filtrar por tipo</label>
+          <select id="opciones" data-testid="select-filter" name="type">
+            <option value="normal">Normal</option>
+            <option value="fire">Fire</option>
+            <option value="water">Water</option>
+            <option value="fairy">Fairy</option>
+            <option value="electric">Electric</option>
+            <option value="fighting">Fighting</option>
+            <option value="grass">Grass</option>
+            <option value="ice">Ice</option>
+            <option value="flying">Flying</option>
+            <option value="psychic">Psychic</option>
+          </select>
+        </div>
+
+        <div class="order">
+          <label> Ordenar por nombre</label>
+          <select id="opcions-order" class="order" data-testid="select-sort">
+            <option value=""> -- </option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+        </div>
+        <div class="button">
+          <button data-testid="button-clear">Limpiar filtros</button>
+          <button data-testid="button-statistics">Estadisticas</button>
+        </div>
+      </div>
+    </nav>
   </header>
   <!-- <button class="experto">EXPERTO</button>
   <button class="principiante">PRINCIPIANTE</button>
@@ -21,43 +58,14 @@
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
   alt="pokemon"> -->
 
-  <nav class="contenedor-nav">
-    <div class="input-name"><input type="text" id="name"> <button id="btn-buscar">Buscar</button></div>
-    <div class="filtros">
-      <div class="options">
-        <select id="opciones" data-testid="select-filter" name="type">
-          <option value="normal">Normal</option>
-          <option value="fire">Fire</option>
-          <option value="water">Water</option>
-          <option value="fairy">Fairy</option>
-          <option value="electric">Electric</option>
-          <option value="fighting">Fighting</option>
-          <option value="grass">Grass</option>
-          <option value="ice">Ice</option>
-          <option value="flying">Flying</option>
-          <option value="psychic">Psychic</option>
-        </select>
-      </div>
 
-      <div class="order">
-        <label> Ordenar por nombre</label>
-        <select id="opcions-order" class="order" data-testid="select-sort">
-          <option value=""> -- </option>
-          <option value="asc">A-Z</option>
-          <option value="desc">Z-A</option>
-        </select>
-      </div>
-      <div class="button">
-        <button data-testid="button-clear">Limpiar filtros</button>
-      </div>
-    </div>
-  </nav>
-
-  <section id="root" class="area-card">
-    <!-- //solo se agrego esta ul por que estava generando una ul por cada pokemon -->
-    <ul id="list" class="">
-    </ul>
-  </section>
+  <main>
+    <h2></h2>
+    <section id="root" class="area-card">
+      <ul id="list">
+      </ul>
+    </section>
+  </main>
 </body>
 <footer>
   <p class="p-footer">pokedex</p>

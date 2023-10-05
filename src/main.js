@@ -32,6 +32,7 @@ orderasd.addEventListener("change", function(event) {
   });
 });
 
+
 //carga los elementos de tarjetas al inicio de la pagina
 data.pokemon.forEach((pokemon) => {
   list.appendChild(renderItems(pokemon));
