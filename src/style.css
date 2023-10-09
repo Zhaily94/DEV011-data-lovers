@@ -6,11 +6,9 @@ html {
 body {
     background-color: #eeeeee;
     font-family: Arial, sans-serif;
-
 }
 
-
-.h1-header {
+.h1-header h1 {
     height: 100%;
     margin: 40px 0px 5px 0px;
     display: flex;
@@ -22,8 +20,8 @@ body {
     width: 26%;
 }
 
-.experto {
-    padding: .25rem .5rem;
+/* .experto {
+    padding: 0.25rem 0.5rem;
     border-radius: 100vmax;
     font-size: 50px;
     cursor: pointer;
@@ -31,20 +29,20 @@ body {
 }
 
 .principiante {
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 100vmax;
     font-size: 50px;
     cursor: pointer;
     background-color: rgb(186, 186, 244);
-}
+} */
 
-.entrada {
+/* .entrada {
     position: fixed;
     top: 0;
     left: -30;
     width: 60%;
     height: auto;
-}
+} */
 
 .contenedor-nav {
     height: 100%;
@@ -74,10 +72,9 @@ input#name {
     height: 30px;
     border-radius: 145px;
     padding-left: 1rem;
-    background: #FFF;
-    border: 1px solid rgba(217, 217, 217, 0.5);
+    background: #fff;
+    border: 1px solid #2ac6ba;
 }
-
 
 .filtros {
     display: flex;
@@ -88,9 +85,11 @@ select#opciones {
     width: 158px;
     height: 30px;
     border-radius: 145px;
-    background: #FFF;
-    border: 1px solid rgba(217, 217, 217, 0.5);
+    padding-left: 0.5rem;
+    background: #fff;
+    border: 1px solid #2ac6ba;
     margin-right: 50px;
+    margin-left: 10px;
 }
 
 select#opcions-order {
@@ -98,10 +97,11 @@ select#opcions-order {
     width: 158px;
     height: 30px;
     border-radius: 145px;
-    background: #FFF;
+    padding-left: 0.5rem;
+    background: #fff;
     border: 1px solid #2ac6ba;
     margin-right: 50px;
-    margin-right: 50px;
+    margin-left: 10px;
 }
 
 #btn-buscar {
@@ -109,14 +109,18 @@ select#opcions-order {
     height: 33px;
 }
 
+h2 {
+    display: none;
+}
+
 button {
     width: 112px;
     height: 30px;
     border-radius: 145px;
     margin-right: 21px;
-    background: #2AC6BA;
+    background: #2ac6ba;
     border: 1px;
-    color: #FFF;
+    color: #fff;
 }
 
 ul {
@@ -142,33 +146,48 @@ ul {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     /* background-color: #2ac6ba; */
-
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container{
+.container {
     display: flex;
-    justify-content: right;
+    justify-content: space-around;
     flex-direction: column;
-    padding: 2px 90px;
-    margin: 11px 0px 0px 0px;
-    /* background-color: blueviolet; */
+}
+
+.containerName {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-content: space-around;
+    background: #2ac6ba;
+}
+
+dt[itemprop="name"] {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+dt[itemprop="num"] {
+    display: inline-block;
+    margin-right: 13px;
 }
 
 .img-avatar {
     width: 39%;
     margin: 19px 0px 0px 90px;
     height: auto;
-
 }
-.class-dt{
+
+.class-dt {
     margin: 18px;
 }
 
-.container-habilities{
+.container-habilities {
     display: flex;
     justify-content: right;
     flex-direction: row;
@@ -177,7 +196,7 @@ ul {
     margin: 6px 0px 11px 0px;
 }
 
-.class-slice{
+.class-slice {
     width: 330px;
     border-top: 2px solid black;
 }
@@ -194,4 +213,73 @@ footer {
 
 .p-footer {
     margin-top: 76px;
+}
+
+@media screen and (min-width: 360px) and (max-width: 767px) {
+    h1-header h1 {
+        height: 100%;
+        width: 100%;
+    }
+
+    .img-header {
+        width: 70%;
+    }
+
+    .input-name {
+        margin-left: 71px;
+    }
+
+    .filtros {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: flex-start;
+        flex-wrap: nowrap;
+        width: 78%;
+        height: auto;
+    }
+    .options {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    select#opciones, select#opcions-order {
+        width: 100%;
+        height: 30px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    .order {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-bottom: 10px;
+        margin-left: 17px;
+    }
+
+    .button {
+        width: 105%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        padding-top: 13px;
+        margin: 17px;
+    }
+
+    section#root {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-left: 40px;
+    }
+
+    
 }

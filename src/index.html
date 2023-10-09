@@ -5,23 +5,25 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+ 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-  <!-- <link rel="stylesheet" href="reset.css" /> -->
   <script src="main.js" type="module"></script>
 </head>
 
 <body>
   <header>
-    <h1>
-      <div class="h1-header">
-      <img class="img-header"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
-        alt="pokemon">
-      </div>
-    </h1>
+
+    <div class="h1-header">
+      <h1>
+        <img class="img-header"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
+          alt="pokemon">
+      </h1>
+    </div>
 
     <nav class="contenedor-nav">
-      <div class="input-name"><input type="text" id="name"> <button id="btn-buscar"><i class="fas fa-search"></i></button></div>
+      <div class="input-name"><input type="text" id="name"> <button id="btn-buscar"><i
+            class="fas fa-search"></i></button></div>
       <div class="filtros">
         <div class="options">
           <label for="opciones"> Filtrar por tipo</label>
@@ -49,8 +51,9 @@
           </select>
         </div>
         <div class="button">
+          <button data-testid="button-statistics">Mas poderoso</button>
+          <button data-testid="button-statistics2">Mas debil</button>
           <button data-testid="button-clear">Limpiar filtros</button>
-          <button data-testid="button-statistics">Estadisticas</button>
         </div>
       </div>
     </nav>
@@ -66,13 +69,16 @@
     <h2></h2>
     <section id="root" class="area-card">
       <ul id="list">
-       
+
       </ul>
     </section>
   </main>
 </body>
 <footer>
-  <p class="p-footer">pokedex</p>
+  <p class="p-footer">Creado por:</p><br>
+  <br>
+  <p class="p-footer">Karla Vianey Contreras y Zhaira Lysset Santos</p>
+
 </footer>
 
 </html>
