@@ -22,11 +22,13 @@
     </div>
 
     <nav class="contenedor-nav">
-      <div class="input-name"><input type="text" id="name"> <button id="btn-buscar"><i
+      <div class="input-name">
+        <label for="">Buscar por nombre</label>
+        <input type="text" id="name"> <button id="btn-buscar"><i
             class="fas fa-search"></i></button></div>
       <div class="filtros">
         <div class="options">
-          <label for="opciones"> Filtrar por tipo</label>
+          <label for="opcions-order"> Filtrar por tipo</label>
           <select id="opciones" data-testid="select-filter" name="select-type">
             <option value="">---</option>
             <option value="normal">Normal</option>
@@ -44,7 +46,7 @@
 
         <div class="order">
           <label> Ordenar por nombre</label>
-          <select id="opcions-order" data-testid="select-sort" name="select-order">
+          <select for="opcions-order" id="opcions-order" data-testid="select-sort" name="select-order">
             <option value=""> -- </option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
@@ -52,11 +54,13 @@
         </div>
         <div class="button">
           <button data-testid="button-statistics">Mas poderoso</button>
-          <button data-testid="button-statistics2">Mas debil</button>
+          <button data-testid="button-statisticsDebil">Mas debil</button>
           <button data-testid="button-clear">Limpiar filtros</button>
         </div>
       </div>
     </nav>
+   <h3 id="contador"></h3>
+     
   </header>
   <!-- <button class="experto">EXPERTO</button>
   <button class="principiante">PRINCIPIANTE</button>
@@ -68,9 +72,7 @@
   <main>
     <h2></h2>
     <section id="root" class="area-card">
-      <ul id="list">
-
-      </ul>
+      <ul id="list"></ul>
     </section>
   </main>
 </body>

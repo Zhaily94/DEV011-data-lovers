@@ -1,11 +1,12 @@
 
-import { renderItems } from './view.js';
-import { search, filterData, sortData, computeStats } from './dataFunctions.js'; //importamos las funciones
+import { renderItems} from './view.js';
+import { search, filterData, sortData, computeStats, statsPokemonDebil, contadorPokemonTipo} from './dataFunctions.js'; //importamos las funciones
 import data from './data/pokemon/pokemon.js';
 
 
 const btnBuscar = document.querySelector("#btn-buscar");
 const btnStatistic = document.querySelector('[data-testid="button-statistics"]');
+const btnStatisticDebil = document.querySelector('[data-testid="button-statisticsDebil"]');
 const limpiar = document.querySelector('[data-testid="button-clear"]');
 const list = document.querySelector('#list');
 const select = document.querySelector('#opciones[data-testid="select-filter"][name="select-type"]');
@@ -13,12 +14,14 @@ const orderasd = document.querySelector('#opcions-order[data-testid="select-sort
 
 
 
-select.addEventListener("change", function (evento) {
+select.addEventListener("change", function () {
   const valueSelect = select.value;
   const filterPokemon = filterData(data.pokemon, 'type', valueSelect); //trae la funcion y se le mandan los datos pero se especifica los datos
   list.innerHTML = "";
   filterPokemon.forEach(itemPokemon => { //recorre los pokemones de tipo seleccionado y pinta los elementos que va encontrando
     list.appendChild(renderItems(itemPokemon));
+    const contador = contadorPokemonTipo(data.pokemon, 'type', valueSelect);
+    document.querySelector("#contador").textContent = "Hay "+contador+ " pokemones de tipo " +valueSelect;
   });
 });
 
@@ -48,8 +51,12 @@ orderasd.addEventListener("change", () => {
 
 //carga los elementos de tarjetas al inicio de la pagina
 data.pokemon.forEach((pokemon) => {
+  const todos = data.pokemon.length;
+  document.querySelector("#contador").textContent = "Hay un total de "+todos+" pokemon analizados";
   list.appendChild(renderItems(pokemon));
 });
+
+
 
 btnBuscar.addEventListener("click", function () {
   const name = document.querySelector("#name").value;
@@ -67,9 +74,18 @@ btnBuscar.addEventListener("click", function () {
 btnStatistic.addEventListener("click", function () {
   const selecFilter = select.value;
   const filter = filterData(data.pokemon, 'type', selecFilter);
+  
   const bestPokemon = selecFilter ? computeStats(filter): computeStats(data.pokemon)
   list.innerHTML = "";
   list.appendChild(renderItems(bestPokemon));
+});
+
+btnStatisticDebil.addEventListener("click", function () {
+  const selecFilter = select.value;
+  const filter = filterData(data.pokemon, 'type', selecFilter);
+  const debilPokemon = selecFilter ? statsPokemonDebil(filter): statsPokemonDebil(data.pokemon)
+  list.innerHTML = "";
+  list.appendChild(renderItems(debilPokemon));
 });
 
 
@@ -78,6 +94,7 @@ limpiar.addEventListener("click", function () {
   select.value = "";
   orderasd.value = "";
   list.innerHTML = "";
+  document.querySelector("#contador").textContent = "";
   data.pokemon.forEach((pokemon) => {
     list.appendChild(renderItems(pokemon));
   });

@@ -1,6 +1,3 @@
-
-
-
 export function search(data, name) {
   for (const pokemon of data.pokemon) { //hace una variable que itera la data
     const mayusculas = pokemon.name.toLowerCase(); //ignora la diferencia de mayusculas o minusculas
@@ -40,6 +37,19 @@ export function computeStats(data) {
   return pokemonAttack;
 }
 
+export function statsPokemonDebil(data) {
+  let pokemonAttack = [];
+  const fakeData = [...data];
+  pokemonAttack = fakeData.reduce((pokemonAnterior, pokemonActual) => {
+    return parseInt(pokemonActual.stats["base-attack"]) <= parseInt(pokemonAnterior.stats["base-attack"]) ? pokemonActual : pokemonAnterior;
+  }, { stats: { "base-attack": 300 } });
+
+  return pokemonAttack;
+}
 
 
+export function contadorPokemonTipo(data, filterBy, value) {
+  const contar = filterData(data,filterBy,value);
+  return contar.map(itemPokemon => itemPokemon[filterBy]).length
+}
 
