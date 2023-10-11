@@ -17,6 +17,7 @@ const orderasd = document.querySelector('#opcions-order[data-testid="select-sort
 select.addEventListener("change", function () {
   const valueSelect = select.value;
   const filterPokemon = filterData(data.pokemon, 'type', valueSelect); //trae la funcion y se le mandan los datos pero se especifica los datos
+  console.log(filterPokemon);
   list.innerHTML = "";
   filterPokemon.forEach(itemPokemon => { //recorre los pokemones de tipo seleccionado y pinta los elementos que va encontrando
     list.appendChild(renderItems(itemPokemon));
