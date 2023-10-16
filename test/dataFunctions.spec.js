@@ -1,4 +1,4 @@
-import {  sortData,computeStats, filterData} from '../src/dataFunctions.js';
+import {  sortData,computeStats, filterData, statsPokemonDebil, contadorPokemonTipo} from '../src/dataFunctions.js';
 import { data as fakeData } from './data.js';
 
 describe('sortData', () => { // aqui se realiza una descripcion del el test de ordenar datos 
@@ -7,17 +7,17 @@ describe('sortData', () => { // aqui se realiza una descripcion del el test de o
     const sortedData = sortData(fakeData, 'name', 'asc');  // Realizamos una variable que traera la respuesta de la funcion donde recibe tres parametros
     expect(sortedData).toBeInstanceOf(Array); // verifica que la respuesta de la funcion sea de tipo array 
   });
-  it('Los datos estan ordenados de forma ascendente', () => {
-    const sortedData = sortData(fakeData, 'name', 'asc');
-    expect(sortedData[0].name).toBe('bulbasaur');
-    expect(sortedData[sortedData.length - 1].name).toBe('venusaur');
+  it('Los datos deben de estar ordenados de forma ascendente', () => {
+    const sortedData = sortData(fakeData, 'name', 'asc'); // la funcion con sus argumentos es guardada en una variable
+    expect(sortedData[0].name).toBe('bulbasaur'); // asegura que el elemento 0 sea bulbasaur
+    expect(sortedData[sortedData.length - 1].name).toBe('venusaur'); // // espera que el ultimo elemento sea venusaur
   });
-  it('Los datos estan ordenados de forma descendente', () => {
+  it('Los datos deben de estar ordenados de forma descendente', () => {
     const sortedData = sortData(fakeData, 'name', 'desc');
     expect(sortedData[0].name).toBe('venusaur');
     expect(sortedData[sortedData.length - 1].name).toBe('bulbasaur');
   });
-  it('Ordena los datos sin usar filtro', () => {
+  it('No debe de modificar el arreglo original, solo debe devolver una copia ordenada de los datos', () => {
     const originalData = [...fakeData];
     sortData(fakeData, 'name', 'asc');
     expect(fakeData).toEqual(originalData);
@@ -25,7 +25,8 @@ describe('sortData', () => { // aqui se realiza una descripcion del el test de o
 });
 
 describe('computeStats', () => { // analiza la funcion de estadistica
-  it('should return the Pokémon with the highest attack stat, or the first one if they have the same attack stat', () => {
+
+  it('Debe de retornar el pokemon con el estado de ataque mas alto o el primero que encuentre con el mismo ataque mayor', () => {
     const fakeDataWithEqualAttackStats = [
       {
         name: 'Bulbasaur',
@@ -49,6 +50,34 @@ describe('computeStats', () => { // analiza la funcion de estadistica
     });
   });
 });
+
+describe('statsPokemonDebil', () => { // analiza la funcion de estadistica mostrando el mas debil
+
+  it('Debe de retornar el pokemon con el estado de ataque mas bajo o el primero que encuentre con el mismo ataque bajo', () => {
+    const fakeDataWithEqualAttack = [
+      {
+        name: 'Bulbasaur',
+        stats: {
+          "base-attack": 118,
+        },
+      },
+      {
+        name: 'Charmander',
+        stats: {
+          "base-attack": 116,
+        },
+      },
+    ];
+    const pokemonWithLowtAttack = statsPokemonDebil(fakeDataWithEqualAttack);
+    expect(pokemonWithLowtAttack).toEqual({
+      name: 'Charmander',
+      stats: {
+        "base-attack": 116,
+      },
+    });
+  });
+});
+
 
 
 describe('filterData', () => {
@@ -81,7 +110,7 @@ describe('filterData', () => {
       },
     ]);
   });
-  it('should return an empty array if no data matches the given filterBy and value', () => {
+  it('Deberia devolver una matriz vacia si ningun dato coincide con el valor y filtro dados', () => {
     const data = [
       {
         name: 'Bulbasaur',
@@ -100,3 +129,47 @@ describe('filterData', () => {
     expect(filteredData).toEqual([]);
   })
 })
+
+describe('contadorPokemonTipo', () => { // cuenta los pokemones segun su tipo
+
+  it('Debe de retornar el total de pokemones de tipo fairy', () => {
+    const dataType = [
+      {
+        name: 'cleffa',
+        type: 'fairy',
+      },
+      {
+        name: 'igglybuff',
+        type: 'fairy',
+      },
+      {
+        name: 'togepi',
+        type: 'fairy',
+      },
+      {
+        name: 'togetic',
+        type: 'fairy',
+      },
+      {
+        name: 'marill',
+        type: 'fairy',
+      },
+      {
+        name: 'azumarill',
+        type: 'fairy',
+      },
+      {
+        name: 'snubbull',
+        type: 'fairy',
+      },
+      {
+        name: 'granbull',
+        type: 'fairy',
+      },
+      
+    ];
+    const contadorPokemon = contadorPokemonTipo(dataType, 'type', 'fairy');
+    expect(contadorPokemon).toEqual(8);
+  });
+});
+

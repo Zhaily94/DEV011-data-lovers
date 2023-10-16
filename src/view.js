@@ -44,60 +44,85 @@ export const renderItems = (pokemon) => {
     nom.textContent = pokemon.name;
     containerName.appendChild(nom);
 
-    const containerProp = document.createElement('dl');
-    containerProp.classList.add('containerProp');
-    card.appendChild(containerProp);
+    //////////////////////// contenedor de tipo
+    const containerTipo = document.createElement('dl');
+    containerTipo.classList.add('containerProp');
+    card.appendChild(containerTipo);
 
     const tip = document.createElement('dt')
     tip.setAttribute('itemprop', 'type');
     tip.textContent = "Tipo: ";
-    containerProp.appendChild(tip);
+    containerTipo.appendChild(tip);
  
     const tipo = document.createElement('dt')
     tipo.setAttribute('itemprop', 'type');
     tipo.textContent = pokemon.type;
     tipo.classList.add('class-tipo');
     // tipo.style.backgroundColor = backgroundColor(pokemon.type[0]);
-    containerProp.appendChild(tipo);
+    containerTipo.appendChild(tipo);
 
-    const gen = document.createElement('dt')
-    gen.setAttribute('itemprop', 'generation');
-    gen.textContent = "Generacion: ";
-    containerProp.appendChild(gen);
+
+    //////////////////// contenedor de generacion
+    const containerGen = document.createElement('dl');
+    containerGen.classList.add('containerProp');
+    card.appendChild(containerGen);
+
+    const tituloGen = document.createElement('dt')
+    tituloGen.setAttribute('itemprop', 'generation');
+    tituloGen.textContent = "Generacion: ";
+    containerGen.appendChild(tituloGen);
+
     const generation = document.createElement('dt');
     if (pokemon.generation) {
       generation.textContent = pokemon.generation.num;
     }
-    containerProp.appendChild(generation);
+    containerGen.appendChild(generation);
 
+    //////////////////// contenedor de region 
+    const containerReg = document.createElement('dl');
+    containerReg.classList.add('containerProp');
+    card.appendChild(containerReg);
 
-    const reg = document.createElement('dt')
-    reg.setAttribute('itemprop', 'region');
-    reg.textContent = "Region: ";
-    containerProp.appendChild(reg);
+    const tituloReg = document.createElement('dt')
+    tituloReg.setAttribute('itemprop', 'region');
+    tituloReg.textContent = "Region: ";
+    containerReg.appendChild(tituloReg);
 
     const region = document.createElement('dt');
     if (pokemon.generation) {
       region.textContent = pokemon.generation.name;
     }
-    containerProp.appendChild(region);
+    containerReg.appendChild(region);
 
-   
+    ////////////////// contenedor secccion 2
 
-    const containerHabilities = document.createElement('dl');
-    containerHabilities.classList.add('container-habilities');
-    card.appendChild(containerHabilities);
+    const containerProp2 = document.createElement('dl');
+    containerProp2.classList.add('container-habilities');
+    card.appendChild(containerProp2);
 
-    const Habilidades = document.createElement('dt');
-    Habilidades.classList.add('class-dt');
-    Habilidades.textContent = "Habilidades";
-    containerHabilities.appendChild(Habilidades);
+    ///////////////// contenedor habilidades 
+    const titleHab = document.createElement('dt');
+    titleHab.classList.add('class-dt');
+    titleHab.textContent = "Habilidades";
+    containerProp2.appendChild(titleHab);
 
 
-    const debilidades = document.createElement('dt');
-    debilidades.classList.add('class-dt');
-    debilidades.textContent = "Debilidades";
-    containerHabilities.appendChild(debilidades);
+    const hab = document.createElement('dt');
+    hab.textContent = pokemon.resistant;
+    titleHab.appendChild(hab);
+
+
+    ///////// contenedor debilidades
+    const titleDeb = document.createElement('dt');
+    titleDeb.classList.add('class-dt');
+    titleDeb.textContent = "Debilidades";
+    containerProp2.appendChild(titleDeb);
+
+    const deb = document.createElement('dt');
+    deb.textContent = pokemon.weaknesses;
+    titleDeb.appendChild(deb);
+
+
 
     li.appendChild(card);
     ul.appendChild(li);

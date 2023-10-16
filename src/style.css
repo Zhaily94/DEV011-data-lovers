@@ -177,7 +177,7 @@ ul{
 }
 
 dl.containerName {
-    margin-top: 6px;
+    margin-top: 13px;
 }
 
 dt[itemprop="name"] {
@@ -192,7 +192,7 @@ dt[itemprop="num"] {
 
 .img-avatar {
     width: 39%;
-    margin: 40px 0px 0px 90px;
+    margin: 20px 0px 20px 90px;
     height: auto;
 }
 
@@ -204,16 +204,15 @@ dt.class-tipo {
     width: 60%;
     height: auto;
     display: flex;
-    margin-bottom: 53px;
-    justify-content: space-around;
+    margin-bottom: 7px;
+    justify-content: flex-end;
     border-radius: 30px;
 }
 
 .container-habilities {
-    display: flex;
-    justify-content: right;
-    flex-direction: row;
-    padding: 2px 44px;
+    width: 86%;
+    height: auto;
+    padding: 0px 23px;
     background-color: #ffffff;
     margin: 3px 0px 0px 0px;
     border-radius: 0px 0px 10px 10px;
@@ -221,17 +220,13 @@ dt.class-tipo {
 
 .containerProp {
     display: flex;
-    padding: 2px 24px;
+    padding: 5px 43px;
     background-color: #ffffff;
     margin: 0px;
     border-radius: 0px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
-
-
 
 .class-slice {
     width: 330px;
