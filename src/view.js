@@ -11,7 +11,7 @@ export const renderItems = (pokemon) => {
     li.setAttribute('itemscope', '');
 
     const card = document.createElement('div');
-    card.style.backgroundColor = backgroundColor(pokemon.type[0]);
+    // card.style.backgroundColor = backgroundColor(pokemon.type[0]);
     card.classList.add('card');
 
     // const cardImg = document.createElement('div');
@@ -57,7 +57,7 @@ export const renderItems = (pokemon) => {
     tipo.setAttribute('itemprop', 'type');
     tipo.textContent = pokemon.type;
     tipo.classList.add('class-tipo');
-    tipo.style.backgroundColor = backgroundColor(pokemon.type[0]);
+    // tipo.style.backgroundColor = backgroundColor(pokemon.type[0]);
     containerProp.appendChild(tipo);
 
     const gen = document.createElement('dt')
@@ -105,48 +105,48 @@ export const renderItems = (pokemon) => {
   }
 }
 
-export const backgroundColor = (type) => {
-  switch (type) {
-  case "normal":
-    return "#e4bdff";
-  case "fire":
-    return "#dc8b51";
-  case "water":
-    return "#00ffff";
-  case "electric":
-    return "#ffff00";
-  case "grass":
-    return "#2ac6ba";
-  case "ice":
-    return "#88cbc6";
-  case "fighting":
-    return "#ff00ff";
-  case "poison":
-    return "#0000ff";
-  case "tierra":
-    return "#9d38bd";
-  case "flying":
-    return "#000000";
-  case "psychic":
-    return "#f4bad5";
-  case "ghost":
-    return "#000000";
-  case "dragon":
-    return "#ff0000";
-  case "bug":
-    return "#9d38bd";
-  case "rock":
-    return "#686995";
-  case "fairy":
-    return "#ffffff";
-  case "ground":
-    return "#e8cba8";
-  case "steel":
-    return "#bae4c8";
-  case "dark":
-    return "#95a0b0";
-  default:
-    return "#ffffff";
-  }
-}
+// export const backgroundColor = (type) => {
+//   switch (type) {
+//   case "normal":
+//     return "#e4bdff";
+//   case "fire":
+//     return "#dc8b51";
+//   case "water":
+//     return "#00ffff";
+//   case "electric":
+//     return "#ffff00";
+//   case "grass":
+//     return "#2ac6ba";
+//   case "ice":
+//     return "#88cbc6";
+//   case "fighting":
+//     return "#ff00ff";
+//   case "poison":
+//     return "#0000ff";
+//   case "tierra":
+//     return "#9d38bd";
+//   case "flying":
+//     return "#000000";
+//   case "psychic":
+//     return "#f4bad5";
+//   case "ghost":
+//     return "#000000";
+//   case "dragon":
+//     return "#ff0000";
+//   case "bug":
+//     return "#9d38bd";
+//   case "rock":
+//     return "#686995";
+//   case "fairy":
+//     return "#ffffff";
+//   case "ground":
+//     return "#e8cba8";
+//   case "steel":
+//     return "#bae4c8";
+//   case "dark":
+//     return "#95a0b0";
+//   default:
+//     return "#ffffff";
+//   }
+// }
 

@@ -80,7 +80,8 @@ btnStatistic.addEventListener("click", function () {
   list.appendChild(renderItems(bestPokemon));
 });
 
-btnStatisticDebil.addEventListener("click", function () {
+btnStatisticDebil.addEventListener("click", function (event) {
+  console.log('ver el evento target', event.target)
   const selecFilter = select.value;
   const filter = filterData(data.pokemon, 'type', selecFilter);
   const debilPokemon = selecFilter ? statsPokemonDebil(filter): statsPokemonDebil(data.pokemon)
