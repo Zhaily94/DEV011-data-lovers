@@ -1,5 +1,52 @@
-import {  sortData,computeStats, filterData, statsPokemonDebil, contadorPokemonTipo} from '../src/dataFunctions.js';
+import {  sortData,computeStats, filterData, statsPokemonDebil, contadorPokemonTipo, search} from '../src/dataFunctions.js';
 import { data as fakeData } from './data.js';
+
+
+describe('search', () => {
+  it('muestra el nombre si coincide', () => {
+    const data = {
+      pokemon: [
+        {
+          name: 'Pikachu',
+          num: 25,
+        },
+      ],
+    };
+    const result = search(data, 'pikachu');
+    expect(result).toEqual({
+      name: 'Pikachu',
+      num: 25,
+    });
+  });
+  it('muestra el numero de pokemon si coincide', () => {
+    const data = {
+      pokemon: [
+        {
+          name: 'Pikachu',
+          num: 25,
+        },
+      ],
+    };
+    const result = search(data, 25);
+    expect(result).toEqual({
+      name: 'Pikachu',
+      num: 25,
+    });
+  });
+  it('regresa la alert', () => {
+    const data = {
+      pokemon: [
+        {
+          name: 'Pikachu',
+          num: 25,
+        },
+      ],
+    };
+    const result = search(data, 'Bulbasaur');
+    expect(result).toBeUndefined();
+  });
+});
+
 
 describe('sortData', () => { // aqui se realiza una descripcion del el test de ordenar datos 
 
